@@ -34,6 +34,19 @@ const AdCash = require('adcash');
 	await adCash.login('test@example.org', 'password123');
 })();
 ```
+
+By default, Puppeteer will use headless mode to automate your AdCash campaigns. If you would like to pass an argument for the Puppeteer browser, you can use:
+
+```js
+const AdCash = require('adcash');
+
+(async () => {
+	const adCash = new AdCash();
+	await adCash.login('test@example.org', 'password123', { headless: false, args: ['--start-fullscreen'] });
+})();
+```
+
+
 Please make sure to replace the email and password provided in the example above with your AdCash account credentials.
 
 ### Start or Stop
