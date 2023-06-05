@@ -22,7 +22,7 @@ In order for AdCash to work properly, you need to download a supported browser t
 To learn more about Puppeteer, you can visit the [Puppeteer documentation](https://pptr.dev/).
 
 
-### Usage
+### Logging in
 
 To get started with automating your AdCash campaigns, you'll first need to authenticate with your AdCash account. Please note that you'll need to run the commands asynchronously. To do this, you can use:
 
@@ -31,7 +31,7 @@ const AdCash = require('adcash');
 
 (async () => {
 	const adCash = new AdCash();
-	await adCash.login('test@example.org', 'password123');
+	await adCash.login('test@example.org', 'password123'); //Login to account
 })();
 ```
 
@@ -42,7 +42,7 @@ const AdCash = require('adcash');
 
 (async () => {
 	const adCash = new AdCash();
-	await adCash.login('test@example.org', 'password123', { headless: false, args: ['--start-fullscreen'] });
+	await adCash.login('test@example.org', 'password123', { headless: false, args: ['--start-fullscreen'] }); //Specify argument for Puppeteer
 })();
 ```
 
@@ -66,3 +66,18 @@ const AdCash = require('adcash');
 })();
 ```
 When using this example, make sure to replace the digits with your AdCash Campaign ID. You do **NOT** need to run these command asynchronously.
+
+### Logging out
+
+To log out of your current AdCash account, you can use:
+
+```js
+const AdCash = require('adcash');
+
+(async () => {
+	const adCash = new AdCash();
+	await adCash.login('test@example.org', 'password123');
+	
+	await adCash.logout(); //Logout of account
+})();
+```
